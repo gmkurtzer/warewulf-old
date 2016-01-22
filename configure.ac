@@ -1,5 +1,5 @@
 AC_PREREQ(2.59)
-AC_INIT(warewulf-common, 3.6.99, warewulf-devel@lbl.gov)
+AC_INIT(warewulf, 3.6.99, warewulf-devel@lbl.gov)
 AC_CONFIG_SRCDIR([.])
 
 AC_PROG_INSTALL
@@ -55,7 +55,7 @@ fi
 AC_SUBST(SVNVERSION)
 
 AC_OUTPUT(Makefile
-   warewulf-common.spec
+   warewulf.spec
    share/Makefile
    bin/Makefile
    etc/Makefile
