@@ -74,7 +74,7 @@ if [ "$DATASTORE" = "mysql" ]; then
         exit 255
     fi
 else
-    wwprint "Skipping configuration of datastore driver: $DATABASE\n"
+    wwprint "Skipping configuration of datastore driver: $DATASTORE\n"
 fi
 
 if ! echo "use $DBNAME;" | mysql 2>/dev/null; then
