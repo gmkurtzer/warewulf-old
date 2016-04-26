@@ -34,6 +34,7 @@ default_node()
     my $netdev = $config->get("netdev");
     my $netmask = $config->get("netmask");
     my $network = $config->get("network");
+    my $gateway = $config->get("gateway");
 
     foreach my $obj (@objects) {
         if (@groups) {
@@ -61,6 +62,11 @@ default_node()
         if ($netdev and $network) {
             if (! $obj->network($netdev)) {
                 $obj->network($netdev, $network);
+            }
+        }
+        if ($netdev and $gateway) {
+            if (! $obj->gateway($netdev)) {
+                $obj->gateway($netdev, $gateway);
             }
         }
     }

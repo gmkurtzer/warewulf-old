@@ -6,9 +6,10 @@
 # through Lawrence Berkeley National Laboratory (subject to receipt of any
 # required approvals from the U.S. Dept. of Energy).  All rights reserved.
 #
-# $Id: wwconfig 1654 2014-04-18 21:59:17Z macabral $
+# $Id: wwconfig 1960 2016-02-25 21:53:52Z gmk $
 #
 
+use Warewulf::Init;
 use Warewulf::ACVars;
 use Getopt::Long;
 

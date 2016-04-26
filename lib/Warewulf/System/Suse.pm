@@ -5,10 +5,10 @@
 # required approvals from the U.S. Dept. of Energy).  All rights reserved.
 #
 #
-# $Id: Rhel.pm 1969 2016-03-25 18:49:30Z bsallen $
+# $Id$
 #
 
-package Warewulf::System::Rhel;
+package Warewulf::System::Suse;
 
 use Warewulf::System;
 use Warewulf::Logger;
@@ -17,16 +17,16 @@ our @ISA = ('Warewulf::System');
 
 =head1 NAME
 
-Warewulf::Rhel - Warewulf's general object instance object interface.
+Warewulf::System::Suse - Warewulf's general object instance object interface.
 
 =head1 ABOUT
 
 
 =head1 SYNOPSIS
 
-    use Warewulf::System::Rhel;
+    use Warewulf::System::Suse;
 
-    my $obj = Warewulf::System::Rhel->new();
+    my $obj = Warewulf::System::Suse->new();
 
 
 =head1 METHODS
@@ -69,7 +69,7 @@ service($$$)
     &dprint("Running service command: $service, $command\n");
 
     if ( -x "/bin/systemctl" ) {
-        system("/bin/systemctl $command $service.service") == 0 and return(1);
+        system("/bin/systemctl $command $service.service");
     } elsif (-x "/etc/init.d/$service") {
         $self->{"OUTPUT"} = ();
         open(SERVICE, "/etc/init.d/$service $command 2>&1|");
@@ -83,21 +83,18 @@ service($$$)
         } else {
             &dprint("Error running: /etc/init.d/$service $command\n");
         }
-    } 
-	if ($self->{"OUTPUT"}) {
+    }
+    if ($self->{"OUTPUT"}) {
         chomp($self->{"OUTPUT"});
         if (close SERVICE) {
             &dprint("Service command ran successfully\n");
             return(1);
         } else {
             &dprint("Error running: /usr/bin/systemctl $command $service\n");
-        } 
+        }
     }
-    return();
+    return(1);
 }
-
-
-
 
 =item chkconfig($name, $command)
 
@@ -128,7 +125,7 @@ chkconfig($$$)
             &dprint("Error running: /sbin/chkconfig $service $command\n");
         }
     }
-    return();
+    return(1);
 }
 
 
@@ -146,8 +143,6 @@ output($)
     return(defined($self->{"OUTPUT"}) ? $self->{"OUTPUT"} : "");
 }
 
-
-
 =back
 
 =head1 SEE ALSO
@@ -164,5 +159,7 @@ required approvals from the U.S. Dept. of Energy).  All rights reserved.
 
 =cut
 
-
 1;
+
+# vim:filetype=perl:syntax=perl:expandtab:ts=4:sw=4:
+

@@ -5,7 +5,7 @@
 # required approvals from the U.S. Dept. of Energy).  All rights reserved.
 #
 #
-# $Id: SystemFactory.pm 1654 2014-04-18 21:59:17Z macabral $
+# $Id: SystemFactory.pm 1965 2016-03-18 18:05:47Z gmk $
 #
 
 package Warewulf::SystemFactory;
@@ -49,6 +49,8 @@ new($$)
     if (! $type) {
         if (-f "/etc/redhat-release") {
             $type = "rhel";
+        } elsif (-f "/etc/SuSE-release") {
+            $type = "Suse";
         }
 		else {
             $type = "Deb";
