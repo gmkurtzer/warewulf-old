@@ -1,9 +1,9 @@
-SUBDIRS = lib share etc bin libexec
+SUBDIRS = lib share etc bin libexec 3rd_party
 
 MAINTAINERCLEANFILES = Makefile.in aclocal.m4 configure compile config.* install-sh missing
 DISTCLEANFILES = 
 CLEANFILES = 
-EXTRA_DIST = warewulf-common.spec LICENSE
+EXTRA_DIST = warewulf.spec LICENSE
 
 # Fix for make distcheck
 DISTCHECK_CONFIGURE_FLAGS = --with-perllibdir=$$dc_install_base/perllibs
