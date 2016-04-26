@@ -7,8 +7,15 @@ dist_confDATA_INSTALL = ${INSTALL} -m 640
 
 
 confdir = $(sysconfdir)/warewulf/
+profiledir = $(sysconfdir)/profile.d/
+initdir = $(sysconfdir)/warewulf/vnfs/include/etc/rc.d/init.d/
+sconfdir = $(sysconfdir)/warewulf/vnfs/include/etc/sysconfig
 
 dist_conf_DATA = database.conf database-root.conf functions
+dist_profile_DATA = cluster-env.sh cluster-env.csh
+dist_init_SCRIPTS = wwfirstboot
+dist_sconf_DATA = wwfirstboot.conf
+
 
 MAINTAINERCLEANFILES = Makefile.in
 
