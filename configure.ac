@@ -55,7 +55,7 @@ fi
 AC_SUBST(SVNVERSION)
 
 AC_OUTPUT(Makefile
-   warewulf-common.spec
+   warewulf.spec
    share/Makefile
    bin/Makefile
    etc/Makefile
