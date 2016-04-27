@@ -7,3 +7,11 @@
 .#*
 
 # Build Files
+*.in
+aclocal.m4
+autom4te.cache
+config.log
+configure
+!/warewulf.spec.in
+!/lib/Warewulf/ACVars.pm.in
+
